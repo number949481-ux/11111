@@ -1,0 +1,80 @@
+/* أنماط أزرار الحاسبة */
+.btn {
+  padding: 0.9rem 0;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.93);
+}
+
+.btn-num {
+  background: #334155;
+  color: #f1f5f9;
+}
+.btn-num:hover { background: #475569; }
+
+.btn-operator {
+  background: #4f46e5;
+  color: white;
+}
+.btn-operator:hover { background: #6366f1; }
+
+.btn-equals {
+  background: #10b981;
+  color: white;
+}
+.btn-equals:hover { background: #34d399; }
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+.btn-danger:hover { background: #f87171; }
+
+.btn-secondary {
+  background: #64748b;
+  color: white;
+}
+.btn-secondary:hover { background: #94a3b8; }
+
+.btn-sci {
+  background: #7c3aed;
+  color: white;
+  font-size: 1rem;
+}
+.btn-sci:hover { background: #8b5cf6; }
+
+/* عناصر السجل */
+.history-item {
+  background: rgba(51, 65, 85, 0.5);
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.history-item:hover {
+  background: rgba(71, 85, 105, 0.7);
+}
+
+/* شريط التمرير */
+#history-list::-webkit-scrollbar { width: 6px; }
+#history-list::-webkit-scrollbar-track { background: transparent; }
+#history-list::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+/* وميض الخطأ */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.error-shake { animation: shake 0.3s ease 2; }
