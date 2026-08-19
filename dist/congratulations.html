@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <title>تهانينا</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+    :root { --ink:#102a43; --gold:#e0a82e; --cream:#fffaf0; --mint:#d9f5ec; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; overflow:hidden; display:grid; place-items:center; color:var(--ink); font-family:"Tajawal",sans-serif; background:radial-gradient(circle at 20% 15%,#fff 0 8%,transparent 9%),linear-gradient(135deg,var(--cream),var(--mint)); }
+    body::before,body::after { content:""; position:fixed; width:22rem; height:22rem; border-radius:50%; filter:blur(1px); opacity:.28; }
+    body::before { background:#f4c95d; top:-12rem; right:-8rem; } body::after { background:#57c4ad; bottom:-13rem; left:-7rem; }
+    main { position:relative; z-index:2; width:min(92%,760px); padding:clamp(2rem,6vw,4.5rem); text-align:center; border:1px solid rgba(255,255,255,.85); border-radius:32px; background:rgba(255,255,255,.72); box-shadow:0 28px 80px rgba(16,42,67,.15); backdrop-filter:blur(14px); }
+    .mark { width:82px; height:82px; margin:auto; display:grid; place-items:center; border-radius:50%; color:#fff; font-size:2rem; font-weight:800; background:linear-gradient(145deg,#efc65f,#bd7e0b); box-shadow:0 12px 28px rgba(189,126,11,.3); }
+    .eyebrow { margin:1.6rem 0 .4rem; color:#8b6517; font-size:.85rem; font-weight:700; letter-spacing:.18em; }
+    h1 { margin:0; font-size:clamp(3rem,10vw,6.4rem); line-height:1; font-weight:800; letter-spacing:-.06em; }
+    .line { width:64px; height:4px; margin:1.4rem auto; border-radius:9px; background:var(--gold); }
+    p { max-width:540px; margin:auto; color:#486581; font-size:clamp(1.05rem,2.4vw,1.35rem); line-height:1.9; }
+    button { margin-top:2rem; padding:.9rem 1.55rem; border:0; border-radius:999px; color:#fff; background:var(--ink); font:700 1rem "Tajawal"; cursor:pointer; box-shadow:0 8px 20px rgba(16,42,67,.2); transition:.2s; }
+    button:hover { transform:translateY(-2px); background:#1f4b6e; }
+    .confetti { position:fixed; top:-20px; z-index:3; width:9px; height:16px; border-radius:2px; animation:fall linear forwards; }
+    @keyframes fall { to { transform:translate3d(var(--drift),110vh,0) rotate(720deg); } }
+    @media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <main aria-labelledby="title">
+    <div class="mark" aria-hidden="true">✓</div>
+    <div class="eyebrow">لحظة تستحق الاحتفاء</div>
+    <h1 id="title">تهانينا</h1>
+    <div class="line" aria-hidden="true"></div>
+    <p>إنجاز جميل يفتح لك أبوابًا أجمل. نتمنى لك مزيدًا من النجاح والتألّق في كل خطوة قادمة.</p>
+    <button id="celebrate" type="button">احتفل بالإنجاز</button>
+  </main>
+  <script>
+    const colors=['#e0a82e','#57c4ad','#102a43','#f08080','#ffffff'];
+    function celebrate(){for(let i=0;i<70;i++){const bit=document.createElement('i');bit.className='confetti';bit.style.left=Math.random()*100+'vw';bit.style.background=colors[i%colors.length];bit.style.setProperty('--drift',(Math.random()*220-110)+'px');bit.style.animationDuration=(2.4+Math.random()*2.2)+'s';bit.style.animationDelay=(Math.random()*.4)+'s';document.body.appendChild(bit);setTimeout(()=>bit.remove(),5000)}}
+    document.getElementById('celebrate').addEventListener('click',celebrate);
+    setTimeout(celebrate,350);
+  </script>
+</body>
+</html>
