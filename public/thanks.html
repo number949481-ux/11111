@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244238">
+  <title>شكرًا</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+    :root { --forest:#244238; --sage:#8ba888; --paper:#f5f0e6; --clay:#c77956; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; overflow:hidden; color:var(--forest); font-family:"Tajawal",sans-serif; background-color:var(--paper); background-image:linear-gradient(rgba(36,66,56,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(36,66,56,.035) 1px,transparent 1px); background-size:28px 28px; }
+    .leaf { position:fixed;width:260px;height:120px;border:2px solid rgba(36,66,56,.15);border-radius:100% 0 100% 0;transform:rotate(-28deg); }
+    .leaf.one { top:-25px;right:-80px;background:rgba(139,168,136,.24); } .leaf.two { bottom:-25px;left:-90px;background:rgba(199,121,86,.14);transform:rotate(150deg); }
+    main { position:relative;z-index:2;width:min(90%,740px);padding:clamp(2.6rem,7vw,5.5rem);text-align:center;background:#fffdf8;border-radius:4px;box-shadow:0 25px 70px rgba(61,54,43,.14); }
+    main::before { content:"";position:absolute;inset:13px;border:1px solid #d9d1c1;pointer-events:none; }
+    .seal { width:64px;height:64px;margin:0 auto 1.6rem;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--clay);font-family:serif;font-size:2rem;box-shadow:0 6px 0 #a95f40;transform:rotate(-5deg); }
+    .eyebrow { color:var(--sage);font-size:.78rem;font-weight:800;letter-spacing:.24em; }
+    h1 { margin:.5rem 0 1.15rem;font-size:clamp(4.2rem,14vw,8rem);font-weight:800;line-height:.9;letter-spacing:-.08em; }
+    p { max-width:510px;margin:auto;color:#66776f;font-size:clamp(1.05rem,2.3vw,1.28rem);line-height:2; }
+    .signature { display:block;margin-top:2rem;color:var(--clay);font-weight:700;font-size:1.05rem; }
+    button { margin-top:1.7rem;padding:.8rem 1.4rem;border:1px solid var(--forest);color:var(--forest);background:transparent;border-radius:2px;font:700 .95rem "Tajawal";cursor:pointer;transition:.25s; }
+    button:hover { color:#fff;background:var(--forest); }
+    .note { position:fixed;z-index:5;left:50%;bottom:24px;transform:translate(-50%,30px);padding:.7rem 1.2rem;border-radius:999px;color:#fff;background:var(--forest);opacity:0;transition:.3s;white-space:nowrap;box-shadow:0 8px 22px rgba(36,66,56,.25); }
+    .note.show { opacity:1;transform:translate(-50%,0); }
+    @media (prefers-reduced-motion:reduce) { * { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <i class="leaf one" aria-hidden="true"></i><i class="leaf two" aria-hidden="true"></i>
+  <main aria-labelledby="title">
+    <div class="seal" aria-hidden="true">ش</div>
+    <div class="eyebrow">بكل الامتنان</div>
+    <h1 id="title">شكرًا</h1>
+    <p>لأن بعض المواقف لا تفيها الكلمات، يبقى الامتنان أجمل ما يمكن أن نقدّمه. شكرًا لوقتك، لطفك، وأثرك الطيب.</p>
+    <span class="signature">مع خالص التقدير</span>
+    <button id="copy" type="button">انسخ رسالة الشكر</button>
+  </main>
+  <div class="note" id="note" role="status">تم نسخ الرسالة</div>
+  <script>
+    const message='شكرًا لوقتك، لطفك، وأثرك الطيب. مع خالص التقدير.';
+    document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(message)}catch{const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}const n=document.getElementById('note');n.classList.add('show');setTimeout(()=>n.classList.remove('show'),1800)});
+  </script>
+</body>
+</html>
